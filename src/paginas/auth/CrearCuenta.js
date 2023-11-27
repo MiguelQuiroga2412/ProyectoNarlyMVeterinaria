@@ -117,19 +117,20 @@ const CrearCuenta = () => {
     }
 
     return (
-        <div className="hold-transition login-page">
-            <div className="login-box">
-                <div className="login-logo">
-                    <Link to={"#"}><b>Crear</b> Cuenta</Link>
-                </div>
-                <div className="card">
-                    <div className="card-body login-card-body">
-                        <p className="login-box-msg">Ingrese los datos del usuario.</p>
-
-                        <form onSubmit={onSubmit}>
-                            <div className="input-group mb-3">
+        <div>
+        <div className="limiter">
+          <div className="container-login100">
+            <div className="wrap-login100">
+              <form className="login100-form validate-form" onSubmit={onSubmit}>
+                <span className="login100-form-title p-b-26">
+                  Registrate<br></br>
+                </span>
+                <span className="login100-form-title p-b-48">
+                  <i className="zmdi zmdi-font" />
+                </span>
+          <div className="wrap-input100 validate-input">
                                 <input type="text"
-                                    className="form-control"
+                                    className="input100"
                                     placeholder="Nombre"
                                     id="nombre"
                                     name="nombre"
@@ -137,16 +138,12 @@ const CrearCuenta = () => {
                                     onChange={onChange}
                                     required
                                 />
-                                <div className="input-group-append">
-                                    <div className="input-group-text">
-                                        <span className="fas fa-user" />
-                                    </div>
-                                </div>
-                            </div>
+                                 <span className="focus-input100" />
+          </div>
 
-                            <div className="input-group mb-3">
+                            <div className="wrap-input100 validate-input">
                                 <input type="email"
-                                    className="form-control"
+                                    className="input100"
                                     placeholder="Email"
                                     id="email"
                                     name="email"
@@ -154,16 +151,12 @@ const CrearCuenta = () => {
                                     onChange={onChange}
                                     required
                                 />
-                                <div className="input-group-append">
-                                    <div className="input-group-text">
-                                        <span className="fas fa-envelope" />
-                                    </div>
-                                </div>
-                            </div>
+                                <span className="focus-input100" />
+          </div>
 
-                            <div className="input-group mb-3">
+                            <div className="wrap-input100 validate-input">
                                 <input type="password"
-                                    className="form-control"
+                                    className="input100"
                                     placeholder="Contraseña"
                                     id="password"
                                     name="password"
@@ -171,16 +164,11 @@ const CrearCuenta = () => {
                                     onChange={onChange}
                                     required
                                 />
-                                <div className="input-group-append">
-                                    <div className="input-group-text">
-                                        <span className="fas fa-lock" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="input-group mb-3">
+                                 <span className="focus-input100" />
+          </div>
+                            <div className="wrap-input100 validate-input">
                                 <input type="password"
-                                    className="form-control"
+                                    className="input100"
                                     placeholder="Confirmar Contraseña"
                                     id="confirmar"
                                     name="confirmar"
@@ -188,26 +176,32 @@ const CrearCuenta = () => {
                                     onChange={onChange}
                                     required
                                 />
-                                <div className="input-group-append">
-                                    <div className="input-group-text">
-                                        <span className="fas fa-lock" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="social-auth-links text-center mb-3">
-                                <button type='submit' className="btn btn-block btn-primary">
-                                    Crear Cuenta
-                                </button>
-                                <Link to={"/"} className="btn btn-block btn-danger">
-                                    Regresar al Login
-                                </Link>
-                            </div>
-                        </form>
-                    </div>
+                                 <span className="focus-input100" />
+          </div>
+      
+                <div className="container-login100-form-btn">
+                  <div className="wrap-login100-form-btn">
+                    <div className="login100-form-bgbtn" />
+                    <button className="login100-form-btn">
+                      Registrar Cuenta
+                    </button>
+                  </div>
                 </div>
+      
+                <div className="text-center p-t-115">
+                  <span className="txt1">
+                    ¿Ya tienes una cuenta?
+                  </span>
+                  <Link className="txt2" to={"/login"} >
+                    IniciarSesion
+                  </Link>
+                </div>
+              </form>
             </div>
+          </div>
         </div>
+        <div id="dropDownSelect1" />
+      </div>
     );
 }
 

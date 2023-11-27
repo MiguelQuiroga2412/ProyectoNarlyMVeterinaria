@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ContentHeader from '../../componentes/ContentHeader';
-import Footer from '../../componentes/Footer';
 import Navbar from '../../componentes/Navbar';
 import SidebarContainer from '../../componentes/SidebarContainer';
 import { useNavigate } from 'react-router-dom';
@@ -132,7 +131,7 @@ const CategoriasCrear = () => {
                     </div>
                 </section>
             </div>
-            <Footer></Footer>
+    
         </div>
     );
 }

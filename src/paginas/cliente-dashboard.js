@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ContentHeader from '../componentes/ContentHeader';
-import Footer from '../componentes/Footer';
+
 import Navbar from '../componentes/Navbar';
-import SidebarContainer from '../componentes/SidebarContainer';
+import SidebarContainer from '../componentes/SidebarContainerCliente';
 
 const Home = () => {
     return (
@@ -32,7 +32,7 @@ const Home = () => {
                                     <div className="icon">
                                         <i className="fa fa-edit" />
                                     </div>
-                                    <Link to={"/categorias-admin"} className="small-box-footer">Ver Categorias <i className="fas fa-arrow-circle-right" /></Link>
+                                    <Link to={"/categorias-cliente"} className="small-box-footer">Ver Categorias <i className="fas fa-arrow-circle-right" /></Link>
                                 </div>
                             </div>
 
@@ -40,7 +40,7 @@ const Home = () => {
                     </div>
                 </section>
             </div>
-            <Footer></Footer>
+         
         </div>
     );
 }

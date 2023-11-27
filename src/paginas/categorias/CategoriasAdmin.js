@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ContentHeader from '../../componentes/ContentHeader';
-import Footer from '../../componentes/Footer';
 import Navbar from '../../componentes/Navbar';
 import SidebarContainer from '../../componentes/SidebarContainer';
 import APIInvoke from '../../utils/APIInvoke'
@@ -13,7 +12,7 @@ const CategoriasAdmin = () => {
 
     const cargarCategorias = async () => {
         const response = await APIInvoke.invokeGET(`/api/categorias`);
-        //console.log(response.categorias);
+        console.log(response);
         setCategorias(response.categorias);
     }
 
@@ -125,7 +124,7 @@ const CategoriasAdmin = () => {
 
                 </section>
             </div>
-            <Footer></Footer>
+       
         </div>
     );
 }

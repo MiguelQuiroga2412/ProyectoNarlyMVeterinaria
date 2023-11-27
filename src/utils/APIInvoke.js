@@ -26,6 +26,23 @@ class APIInvoke {
         return response
     }
 
+
+    async invokesGET(resource, queryParams) {
+        queryParams = queryParams || []
+        const queryString = queryParams.reduce((last, q, i) => last + `${i === 0 ? '?' : "&"}${q}`, '')
+        const data = {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        }
+        const url = `${config.api.baseURL}${resource}${queryString}`
+        let response = (await (await fetch(url, data)).json())
+        return response
+    }
+
+
+
     async invokePUT(resource, body) {
 
         const token = localStorage.getItem("token");
