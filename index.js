@@ -14,10 +14,11 @@ app.use(cors());
 //Habilite express.json
 app.use(express.json({ extended: true }));
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8000;
 
 //importar rutas
 app.use("/api/usuarios", require("./routes/usuarios"));
+app.use("/api/tienda", require("./routes/tienda"));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/categorias", require("./routes/categorias"));
 app.use("/api/productos", require("./routes/productos"));

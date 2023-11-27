@@ -36,6 +36,39 @@ exports.obtenerCategorias = async (req, res) => {
   }
 };
 
+
+
+//Listar los dulces de la base de datos
+exports.obtenerTodasCategorias = async (req, res) => {
+  try {
+      const categorias = await Categoria.find(); 
+      res.status(200).send(categorias); 
+  } catch (error) {
+      console.error(error); 
+  }
+}
+exports.obtenerCreadores = async (req, res) => { 
+  try {
+    const categorias = await Categoria.distinct('creador');
+    res.status(200).send(categorias); 
+} catch (error) {
+    console.error(error); 
+}
+};
+
+exports.obtenerCategoriasTienda = async (req, res) => {
+try {
+  const { creador } = req.query;
+  const categorias = await Categoria.find({ creador });
+  res.status(200).send(categorias); 
+} catch (error) {
+  console.error(error); 
+}
+};
+
+
+
+
 exports.actualizarCategoria = async (req, res) => {
   //revisar si hay errores
   const errores = validationResult(req);

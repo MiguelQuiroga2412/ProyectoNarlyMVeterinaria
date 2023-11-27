@@ -43,9 +43,7 @@ exports.obtenerProductos = async (req, res) => {
       return res.status(404).json({ msg: "Categoria no encontrada" });
     }
 
-    if (categoriaEncontrada.creador.toString() !== req.usuario.id) {
-      return res.status(400).json({ msg: "No autorizado" });
-    }
+    
 
     const productos = await Producto.find({ categoria });
     res.json({ productos });

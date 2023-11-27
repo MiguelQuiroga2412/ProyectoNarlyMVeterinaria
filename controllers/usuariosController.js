@@ -4,7 +4,7 @@ const { validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 
 exports.crearUsuario = async (req, res) => {
-  //revisar si hay errores
+  // Revisar si hay errores
   const errores = validationResult(req);
   if (!errores.isEmpty()) {
     return res.status(400).json({ errores: errores.array() });
@@ -13,22 +13,28 @@ exports.crearUsuario = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    //Revisar que el usuario registrado sea único
+    // Revisar que el usuario registrado sea único
     let usuario = await Usuario.findOne({ email });
 
     if (usuario) {
       return res.status(400).json({ msg: "El usuario ya existe" });
     }
 
-    //crear el nuevo usuario
-    usuario = new Usuario(req.body);
+    // Buscar el rol por ID 1 (asumiendo que ya existe en la base de datos)
+    const rolId = 1; // Cambia esto si el ID del rol puede variar
+
+    // Crear el nuevo usuario
+    usuario = new Usuario({
+      ...req.body,
+      rol: rolId,
+    });
 
     usuario.password = await bcryptjs.hash(password, 10);
 
-    //Guardar usuario en la bd
+    // Guardar usuario en la BD
     await usuario.save();
 
-    //Firmar el JWT
+    // Firmar el JWT
     const payload = {
       usuario: { id: usuario.id },
     };
@@ -37,12 +43,12 @@ exports.crearUsuario = async (req, res) => {
       payload,
       process.env.SECRETA,
       {
-        expiresIn: 3600, //1 hora
+        expiresIn: 3600, // 1 hora
       },
       (error, token) => {
         if (error) throw error;
 
-        //Mensaje de confirmación
+        // Mensaje de confirmación
         res.json({ token });
       }
     );

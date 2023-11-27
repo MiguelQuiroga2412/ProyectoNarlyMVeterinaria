@@ -16,6 +16,9 @@ router.post(
 // Obtener categorias
 
 router.get("/", auth, categoriaController.obtenerCategorias);
+router.get("/por-creador", categoriaController.obtenerCategoriasTienda);
+router.get('/todos', categoriaController.obtenerCreadores);
+router.get("/todas", categoriaController.obtenerTodasCategorias);
 
 //Actualizar categoria vía ID
 router.put(
